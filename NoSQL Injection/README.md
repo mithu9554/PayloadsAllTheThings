@@ -210,6 +210,8 @@ db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emi
 ';return 'a'=='a' && ''=='
 ";return(true);var xyz='a
 0;return true
+"$where":"Object.keys(this)[1].match('^.{}.*')"
+"$where":"this.YOURTOKENNAME.match('^.{§§}§§.*')"
 ```
 
 ## References
