@@ -270,7 +270,175 @@ example.com/graphql?query={TYPE_1{FIELD_1,FIELD_2}}
   }"
 } 
 ```
+```
+query IntrospectionQuery {
+  __schema
+ {
+    queryType {
+      name
+    }
+    mutationType {
+      name
+    }
+    subscriptionType {
+      name
+    }
+    types {
+      ...FullType
+    }
+    directives {
+      name
+      description
+      args {
+        ...InputValue
+      }
+    }
+  }
+}
 
+fragment FullType on __Type {
+  kind
+  name
+  description
+  fields(includeDeprecated: true) {
+    name
+    description
+    args {
+      ...InputValue
+    }
+    type {
+      ...TypeRef
+    }
+    isDeprecated
+    deprecationReason
+  }
+  inputFields {
+    ...InputValue
+  }
+  interfaces {
+    ...TypeRef
+  }
+  enumValues(includeDeprecated: true) {
+    name
+    description
+    isDeprecated
+    deprecationReason
+  }
+  possibleTypes {
+    ...TypeRef
+  }
+}
+
+fragment InputValue on __InputValue {
+  name
+  description
+  type {
+    ...TypeRef
+  }
+  defaultValue
+}
+
+fragment TypeRef on __Type {
+  kind
+  name
+  ofType {
+    kind
+    name
+    ofType {
+      kind
+      name
+      ofType {
+        kind
+        name
+      }
+    }
+  }
+}
+query IntrospectionQuery {
+  __schema
+ {
+    queryType {
+      name
+    }
+    mutationType {
+      name
+    }
+    subscriptionType {
+      name
+    }
+    types {
+      ...FullType
+    }
+    directives {
+      name
+      description
+      args {
+        ...InputValue
+      }
+    }
+  }
+}
+
+fragment FullType on __Type {
+  kind
+  name
+  description
+  fields(includeDeprecated: true) {
+    name
+    description
+    args {
+      ...InputValue
+    }
+    type {
+      ...TypeRef
+    }
+    isDeprecated
+    deprecationReason
+  }
+  inputFields {
+    ...InputValue
+  }
+  interfaces {
+    ...TypeRef
+  }
+  enumValues(includeDeprecated: true) {
+    name
+    description
+    isDeprecated
+    deprecationReason
+  }
+  possibleTypes {
+    ...TypeRef
+  }
+}
+
+fragment InputValue on __InputValue {
+  name
+  description
+  type {
+    ...TypeRef
+  }
+  defaultValue
+}
+
+fragment TypeRef on __Type {
+  kind
+  name
+  ofType {
+    kind
+    name
+    ofType {
+      kind
+      name
+      ofType {
+        kind
+        name
+      }
+    }
+  }
+}
+
+```
 ### Extract data using projections
 
 :warning: Don’t forget to escape the " inside the **options**.
